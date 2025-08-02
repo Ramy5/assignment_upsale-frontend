@@ -10,10 +10,19 @@ function App() {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  const handleFetchMovies = async () => {
+    try {
+      await axiosInstance(`/movies`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = async (data: MovieFormData) => {
     setIsLoading(true);
     try {
       await axiosInstance.post("/movies", data);
+      handleFetchMovies();
       toast.success("Movie added successfully!");
     } catch (error) {
       console.error(error);
