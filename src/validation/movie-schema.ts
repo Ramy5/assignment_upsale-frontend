@@ -2,7 +2,7 @@ import z from "zod";
 
 const movieSchema = z.object({
   title: z.string().min(1, "Title is required"),
-  type: z.enum(["Movie", "TV Show"]),
+  type: z.enum(["movie", "tv_show"]),
   director: z.string().min(1, "Director is required"),
   budget: z.string().min(1, "Budget is required"),
   location: z.string().min(1, "Location is required"),

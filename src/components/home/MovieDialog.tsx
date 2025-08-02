@@ -46,7 +46,7 @@ const MovieDialog: React.FC<MovieDialogProps> = ({
     resolver: zodResolver(movieSchema),
     defaultValues: initialData || {
       title: "",
-      type: "Movie",
+      type: "movie",
       director: "",
       budget: "",
       location: "",
@@ -89,17 +89,17 @@ const MovieDialog: React.FC<MovieDialogProps> = ({
 
             <div className="space-y-1">
               <Select
-                defaultValue={initialData?.type || "Movie"}
+                defaultValue={initialData?.type || "movie"}
                 onValueChange={(value) =>
-                  setValue("type", value as "Movie" | "TV Show")
+                  setValue("type", value as "movie" | "tv_show")
                 }
               >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select Type" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Movie">Movie</SelectItem>
-                  <SelectItem value="TV Show">TV Show</SelectItem>
+                  <SelectItem value="movie">Movie</SelectItem>
+                  <SelectItem value="tv_show">TV Show</SelectItem>
                 </SelectContent>
               </Select>
               {errors.type && (
