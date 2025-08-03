@@ -74,12 +74,12 @@ const MovieDialog: React.FC<MovieDialogProps> = ({
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            {initialData ? "Edit Entry" : "Add New Entry"}
+            {initialData ? "Edit Movie" : "Add New Movie"}
           </DialogTitle>
         </DialogHeader>
 
         <form onSubmit={handleSubmit(handleFormSubmit)}>
-          <div className="space-y-4 grid md:grid-cols-2 gap-4">
+          <div className="space-y-4 grid md:grid-cols-2 gap-4 overflow-y-auto max-h-[70vh]">
             <div className="space-y-1">
               <Input placeholder="Title" {...register("title")} />
               {errors.title && (

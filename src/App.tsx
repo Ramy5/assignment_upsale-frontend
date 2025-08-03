@@ -9,21 +9,15 @@ import { toast, ToastContainer } from "react-toastify";
 function App() {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  const handleFetchMovies = async () => {
-    try {
-      await axiosInstance(`/movies`);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [reloadKey, setReloadKey] = useState(0);
 
   const handleSubmit = async (data: MovieFormData) => {
     setIsLoading(true);
     try {
       await axiosInstance.post("/movies", data);
-      handleFetchMovies();
       toast.success("Movie added successfully!");
+      setReloadKey((prev) => prev + 1);
+      setOpen(false);
     } catch (error) {
       console.error(error);
       toast.error("Failed to add movie.");
@@ -39,7 +33,7 @@ function App() {
           Add New Favorite Movie
         </Button>
 
-        <HomeContent />
+        <HomeContent reloadKey={reloadKey} />
       </div>
 
       <MovieDialog
@@ -51,8 +45,8 @@ function App() {
 
       <ToastContainer
         position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
+        autoClose={2000}
+        hideProgressBar={true}
         newestOnTop={true}
         closeOnClick
         pauseOnHover

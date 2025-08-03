@@ -22,7 +22,6 @@ const TableFilter = ({ onFilter }: Props) => {
   });
 
   const onSubmit = (data: Filter) => {
-    console.log("🚀 ~ onSubmit ~ data:", data);
     onFilter(data);
   };
 
