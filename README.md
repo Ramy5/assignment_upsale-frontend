@@ -24,7 +24,6 @@ This is the frontend of the Favorite Movies App, built with **React**, **TypeScr
 - [React Hook Form](https://react-hook-form.com/)
 - [Zod](https://zod.dev/)
 - [React Toastify](https://fkhadra.github.io/react-toastify/)
-- [Radix UI Dialog + Select](https://www.radix-ui.com/)
 - [Axios](https://axios-http.com/)
 
 ## 🚀 Installation & Setup
